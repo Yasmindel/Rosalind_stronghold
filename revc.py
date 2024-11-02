@@ -1,23 +1,13 @@
-def reverse_complement(dna_seq):
-    """
-    This function takes a DNA string and returns its reverse complement.
-    In DNA, 'A' complements 'T', and 'C' complements 'G'.
-    
-    Args:
-    dna_seq (str): A DNA string of length at most 1000 bp.
-    
-    Returns:
-    str: The reverse complement of the input DNA string.
-    """
-    
-    # Define the complement mapping for each base
+def reverse_complement(dna):
+    """Returns the reverse complement of a DNA sequence."""
     complement = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
-    
-    # Reverse the DNA sequence and replace each base with its complement
-    rev_complement = ''.join(complement[base] for base in reversed(dna_seq))
-    
-    return rev_complement
+    reversed_dna = dna[::-1]  # Reverse the DNA sequence
+    return ''.join(complement[base] for base in reversed_dna)  # Create the complement
 
-# Example usage with a sample dataset
-sample_dna = "AAAACCCGGT"
-print(reverse_complement(sample_dna))
+def revc():
+    # Predefined dataset as per your input
+    dna = "AAAACCCGGT"  # The specified DNA sequence
+    print(reverse_complement(dna))
+    
+if __name__ == "__main__":
+    revc()
