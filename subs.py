@@ -1,16 +1,18 @@
-def subs(s, t):
-    positions = []
+def subs():
+    # Predefined dataset as per your input
+    s = "GATATATGCATATACTT"  # The main string
+    t = "ATAT"               # The substring to search for
     
-    # Search for all occurrences of the substring t in s
-    idx = s.find(t)  # Find the first occurrence of t in s
-    while idx != -1:
-        positions.append(idx + 1)  # Store 1-based index
-        idx = s.find(t, idx + 1)  # Continue searching from the next position
-    
-    # Print all positions in a single line
-    print(' '.join(map(str, positions)))
+    idx = -1
+    results = []
+    while True:
+        try:
+            idx = s.index(t, idx + 1)  # Find the next occurrence of t in s
+            results.append(idx + 1)     # Store the 1-based index
+        except ValueError:
+            break
 
-# Directly inputting the strings
-s = "GATATATGCATATACTT"
-t = "ATAT"
-subs(s, t))
+    print(' '.join(map(str, results)))  # Print all found indices as a single line
+
+if __name__ == "__main__":
+    subs()
